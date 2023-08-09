@@ -27,7 +27,7 @@ export function MainNav ({ items }: MainNavProps) {
         className='flex items-center gap-x-2'
       >
         <Logomark className='w-auto h-8' />
-        <Logo className='w-auto h- hidden md:block' />
+        <Logo className='w-auto h-4 hidden md:block' />
       </Link>
       <NavigationMenu className='hidden md:block'>
         <NavigationMenuList>

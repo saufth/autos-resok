@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Venta de autos seminuevos",
   "private": true,
-  "homepage": "http://localhost:3000/",
+  "homepage": "https://autos-resok.vercel.app/",
   "engines": {
     "node": "18.x",
     "pnpm": "8.x",

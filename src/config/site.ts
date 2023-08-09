@@ -1,4 +1,4 @@
-export const baseUrl = 'http://localhost:3000'
+export const baseUrl = 'https://autos-resok.vercel.app'
 
 export const siteConfig = {
   name: 'Autos Resok',

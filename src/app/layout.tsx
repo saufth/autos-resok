@@ -1,4 +1,4 @@
-import { SiteHeader } from '@/components/layouts/site-header'
+import { SiteHeader } from '@/components/layouts/SiteHeader'
 import TailwindIndicator from '@/components/tailwind-indicator'
 import ThemeProvider from '@/components/theme-provider'
 import Toaster from '@/components/ui/toaster'

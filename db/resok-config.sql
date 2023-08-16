@@ -1,3 +1,34 @@
+-- -----------------------------------------------------
+-- `stores`
+-- -----------------------------------------------------
+INSERT INTO `countries`
+    (
+        `name`,
+        `iso`
+    )
+VALUES
+    (
+        'México',
+        'MX'
+    );
+
+SELECT * FROM `stores`;
+
+-- -----------------------------------------------------
+-- `stores`
+-- -----------------------------------------------------
+INSERT INTO `cities`
+    (
+        `name`,
+        `countries_id`
+    )
+VALUES
+    (
+        'Querétaro',
+        1
+    );
+
+SELECT * FROM `stores`;
 
 -- -----------------------------------------------------
 -- `stores`
@@ -5,14 +36,16 @@
 INSERT INTO `stores`
     (
         `name`,
-        `description`,
-        `gmaps`
+        `address`,
+        `gmaps`,
+        `cities_id`
     )
 VALUES
     (
-        'Carroccio',
-        'Sucursal principal ubicada en calle Pasteur #1234-B. Entre calles Corregidora de Artega y Venustiano Carranza. col. centro. C.P. 760760. Quéretaro, MX (Dirección random)',
-        'nqTKiv7hrqNiWGyL9'
+        'Pasteur',
+        'Calle Pasteur #1234-B. Entre calles Corregidora de Artega y Venustiano Carranza. col. centro. C.P. 760760. Quéretaro, MX (Dirección random)',
+        'nqTKiv7hrqNiWGyL9',
+        1
     );
 
 SELECT * FROM `stores`;
@@ -20,80 +53,51 @@ SELECT * FROM `stores`;
 -- -----------------------------------------------------
 -- `categories`
 -- -----------------------------------------------------
-INSERT INTO `categories`
+INSERT INTO `brands`
+    (`name`)
+VALUES
+    ('Volkswagen');
+
+SELECT * FROM `brands`;
+
+-- -----------------------------------------------------
+-- `models`
+-- -----------------------------------------------------
+INSERT INTO `models`
+    (`name`)
+VALUES
+    ('Vento');
+
+-- -----------------------------------------------------
+-- `types`
+-- -----------------------------------------------------
+INSERT INTO `types`
+    (`name`)
+VALUES
+    (
+        'Coupe',
+        'Hatchback',
+        'Pickup',
+        'Sedan',
+        'Suv',
+        'Van'
+    );
+
+-- -----------------------------------------------------
+-- `cars`
+-- -----------------------------------------------------
+INSERT INTO `cars`
     (
         `name`,
-        `description`,
-        `image`,
-        `slug`
+        `features`
     )
 VALUES
     (
-        'Seminuevos',
-        'Hecha un vistazo a nuestras increíbles motos eléctricas.',
-        '/images/category-motos.webp',
-        'motos-electricas'
-    ),
-    (
-        'Camionetas',
-        'Gran variedad de ropa, calzado y equipo de seguridad.',
-        '/images/category-clothing.webp',
-        'ropa-y-equipo'
+        '1.6 COMFORTLINE PLUS AUTO',
+        '{
+
+        }'
     );
-
-SELECT * FROM `categories`;
-
--- getNavigation
-SELECT `c`.`name` AS `title`, (
-	SELECT JSON_ARRAYAGG(JSON_OBJECT(
-        'title', `sc`.`name`,
-        'description', `sc`.`description`,
-        'href', CONCAT('/', `c`.`slug`, '/', `sc`.`slug`)
-	)) FROM `subcategories` AS `sc` WHERE `sc`.`categories_id` = `c`.`id`) AS `items`
-FROM `categories` AS `c` WHERE `c`.`status` > 0;
-
--- -----------------------------------------------------
--- `subcategories`
--- -----------------------------------------------------
-INSERT INTO `subcategories`
-    (
-        `name`,
-        `description`,
-        `image`,
-        `slug`,
-        `categories_id`
-    )
-VALUES
-    (
-        'Scooters',
-        'Encuentra los mejores scooters eléctricos con baterías recargables.',
-        '/images/category-motos.webp',
-        'scooters',
-        1
-    ),
-    (
-        'Motocicletas',
-        'Nuestro legado cobra vida en motocicletas eléctricas que redefinen el concepto de conducción.',
-        '/images/category-motos.webp',
-        'motocicletas',
-        1
-    ),
-    (
-        'Quads',
-        'Conoce la amplia gama de cuatrimotos que tenemos para ti, con diferentes características y cilindrajes para las diferentes necesidades.',
-        '/images/category-motos.webp',
-        'cuatrimotos',
-        1
-    ),
-    (
-        'Cascos',
-        'Conoce la amplia gama de cascos que tenemos para ti, con diferentes características para las diferentes necesidades.',
-        '/images/category-accesories.webp',
-        'cascos',
-        2
-    );
-
-SELECT * FROM `subcategories`;
 
 -- -----------------------------------------------------
 -- `products`

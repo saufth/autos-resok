@@ -12,3 +12,26 @@ export function slugify (str: string) {
     .replace(/[^\w-]+/g, '')
     .replace(/--+/g, '-')
 }
+
+export function formatPrice (
+  price: number | string,
+  currency: 'USD' | 'MXN' = 'MXN',
+  notation: 'compact' | 'engineering' | 'scientific' | 'standard' = 'standard'
+) {
+  return new Intl.NumberFormat('es-MX', {
+    style: 'currency',
+    currency,
+    notation
+  }).format(Number(price))
+}
+
+export function formatMilage (
+  value: number | string
+) {
+  return new Intl.NumberFormat('es-MX', {
+    style: 'unit',
+    unit: 'kilometer',
+    unitDisplay: 'short',
+    maximumFractionDigits: 0
+  }).format(Number(value))
+}

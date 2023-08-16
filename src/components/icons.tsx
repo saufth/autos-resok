@@ -1,8 +1,12 @@
 import {
+  Check,
+  Image,
+  Loader2,
   Menu,
   Moon,
   Search,
   SunMedium,
+  Plus,
   type LucideProps
 } from 'lucide-react'
 
@@ -62,12 +66,16 @@ export function Logomark (props: LucideProps) {
 }
 
 export const Icons = {
+  Add: Plus,
+  Check,
   Logo,
   Logomark,
   Menu,
   Moon,
   Search,
-  Sun: SunMedium
+  Spinner: Loader2,
+  Sun: SunMedium,
+  Placeholder: Image
 }
 
 export type AppIcons = keyof typeof Icons

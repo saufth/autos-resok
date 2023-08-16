@@ -67,15 +67,15 @@ export function Combobox () {
         onClick={() => setIsOpen(true)}
       >
         <Icons.Search className='h-4 w-4 xl:mr-2' aria-hidden='true' />
-        <span className='hidden xl:inline-flex'>Search products...</span>
-        <span className='sr-only'>Search products</span>
-        <kbd className='pointer-events-none absolute right-1.5 top-2 hidden h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex'>
-          <span className='text-xs'>Ctrl</span>K
+        <span className='hidden xl:inline-flex'>Buscar autos...</span>
+        <span className='sr-only'>Buscar autos</span>
+        <kbd className='pointer-events-none absolute right-1.5 hidden h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 pt-[3px] font-mono text-[10px] font-medium text-xs opacity-100 xl:flex'>
+          Ctrl K
         </kbd>
       </Button>
       <CommandDialog position='top' open={isOpen} onOpenChange={setIsOpen}>
         <CommandInput
-          placeholder='Search products...'
+          placeholder='Buscar autos...'
           value={query}
           onValueChange={setQuery}
         />

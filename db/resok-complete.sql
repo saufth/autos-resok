@@ -1,5 +1,5 @@
--- Carroccio MySQL database
--- Model: Carroccio
+-- Autos Resok MySQL database
+-- Model: Autos Resok
 -- Version: 1.0
 -- Wed Jul 5 02:07:40 2023
 -- Author: https://github.com/saufth
@@ -8,11 +8,11 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
-CREATE SCHEMA IF NOT EXISTS `carroccio` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci;
-USE `carroccio`;
+CREATE SCHEMA IF NOT EXISTS `resok` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci;
+USE `resok`;
 
-CREATE TABLE IF NOT EXISTS `state` (
-  `id` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `countries` (
+  `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(32) NOT NULL,
   `status` TINYINT UNSIGNED NOT NULL DEFAULT 1,
   `created_at` TIMESTAMP NOT NULL DEFAULT NOW(),
@@ -21,6 +21,22 @@ CREATE TABLE IF NOT EXISTS `state` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id`),
   UNIQUE INDEX `name_UNIQUE` (`name`)
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `state` (
+  `id` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(32) NOT NULL,
+  `status` TINYINT UNSIGNED NOT NULL DEFAULT 1,
+  `created_at` TIMESTAMP NOT NULL DEFAULT NOW(),
+  `updated_at` TIMESTAMP NULL ON UPDATE NOW(),
+  `deleted_at` TIMESTAMP NULL,
+  `countries_id` MEDIUMINT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id`),
+  UNIQUE INDEX `name_UNIQUE` (`name`),
+  INDEX `fk_state_countries_idx` (`countries_id`),
+  CONSTRAINT `fk_state_countries`
+    FOREIGN KEY (`countries_id`) REFERENCES `countries` (`id`)
 ) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `cities` (
@@ -33,7 +49,6 @@ CREATE TABLE IF NOT EXISTS `cities` (
   `state_id` MEDIUMINT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id`),
-  UNIQUE INDEX `name_UNIQUE` (`name`),
   INDEX `fk_cities_state_idx` (`state_id`),
   CONSTRAINT `fk_cities_state`
     FOREIGN KEY (`state_id`) REFERENCES `state` (`id`)
@@ -48,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `stores` (
   `created_at` TIMESTAMP NOT NULL DEFAULT NOW(),
   `updated_at` TIMESTAMP NULL ON UPDATE NOW(),
   `deleted_at` TIMESTAMP NULL,
+  `cities_id` MEDIUMINT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id`),
   UNIQUE INDEX `name_UNIQUE` (`name`),
@@ -99,6 +115,8 @@ CREATE TABLE IF NOT EXISTS `models` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(32) NOT NULL,
   `year` YEAR NOT NULL,
+  `electric_windows` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  `speeds` TINYINT UNSIGNED NOT NULL DEFAULT 0,
   `status` TINYINT UNSIGNED NOT NULL DEFAULT 1,
   `created_at` TIMESTAMP NOT NULL DEFAULT NOW(),
   `updated_at` TIMESTAMP NULL ON UPDATE NOW(),
@@ -108,15 +126,16 @@ CREATE TABLE IF NOT EXISTS `models` (
   `traction_id` TINYINT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id`),
-  INDEX `fk_products_brand_idx` (`brand_id`),
-  INDEX `fk_products_subtypes_idx` (`subtypes_id`),
-  INDEX `fk_products_traction_idx` (`traction_id`),
-  CONSTRAINT `fk_products_brand`
+  INDEX `fk_models_brand_idx` (`brand_id`),
+  INDEX `fk_models_subtypes_idx` (`subtypes_id`),
+  INDEX `fk_models_traction_idx` (`traction_id`),
+  CONSTRAINT `fk_models_brand`
     FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`),
-  CONSTRAINT `fk_products_subtypes`
+  CONSTRAINT `fk_models_subtypes`
     FOREIGN KEY (`subtypes_id`) REFERENCES `subtypes` (`id`)
-  CONSTRAINT `fk_products_traction`
-    FOREIGN KEY (`traction_id`) REFERENCES `traction` (`id`)
+  CONSTRAINT `fk_models_traction`
+    FOREIGN KEY (`traction_id`) REFERENCES `traction` (`id`),
+  CONSTRAINT `chk_models_speeds` CHECK (`speeds` > 0 AND `speeds` < 11)
 ) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `product_status` (
@@ -149,6 +168,13 @@ CREATE TABLE IF NOT EXISTS `products` (
   `price` FLOAT NOT NULL,
   `mileage` INT UNSIGNED NOT NULL,
   `images` JSON NULL,
+  `leather` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  `gps` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  `touch_screen` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  `apple` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  `android` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  `android` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  `status` TINYINT UNSIGNED NOT NULL DEFAULT 1,
   `created_at` TIMESTAMP NOT NULL DEFAULT NOW(),
   `updated_at` TIMESTAMP NULL ON UPDATE NOW(),
   `deleted_at` TIMESTAMP NULL,

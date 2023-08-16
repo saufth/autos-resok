@@ -18,8 +18,7 @@ export const interFont = localFont({
       style: 'normal'
     }
   ],
-  display: 'swap',
-  variable: '--font-inter'
+  display: 'swap'
 })
 
 export const croparFont = localFont({

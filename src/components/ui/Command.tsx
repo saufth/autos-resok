@@ -10,7 +10,7 @@ import {
   Dialog,
   DialogContent,
   type DialogPosition
-} from '@/components/ui/dialog'
+} from '@/components/ui/Dialog'
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,

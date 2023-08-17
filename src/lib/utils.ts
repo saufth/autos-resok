@@ -35,3 +35,14 @@ export function formatMilage (
     maximumFractionDigits: 0
   }).format(Number(value))
 }
+
+export function toTitleCase (str: string) {
+  return str.replace(
+    /\w\S*/g,
+    (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase()
+  )
+}
+
+export function truncate (str: string, length: number) {
+  return str.length > length ? `${str.substring(0, length)}...` : str
+}

@@ -1,10 +1,8 @@
 'use client'
-
 import * as React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import type { MainNavItem, SidebarNavItem } from '@/types'
-
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import {
@@ -13,10 +11,10 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/Accordion'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/Button'
 import { ScrollArea } from '@/components/ui/ScrollArea'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/Sheet'
-import { Icons } from '@/components/icons'
+import { Icons } from '@/components/Icons'
 
 interface MobileNavProps {
   mainNavItems?: MainNavItem[]

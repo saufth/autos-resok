@@ -13,6 +13,12 @@ module.exports = {
       }
     },
     extend: {
+      screens: {
+        xs: '380px'
+      },
+      flex: {
+        full: '0 0 100%'
+      },
       fontFamily: {
         helvetica: ['var(--font-helvetica)'],
         sans: ['var(--font-inter)', ...defaultTheme.fontFamily.sans],

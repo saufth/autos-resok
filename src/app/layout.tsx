@@ -1,11 +1,10 @@
-import { SiteHeader } from '@/components/layouts/SiteHeader'
-import TailwindIndicator from '@/components/tailwind-indicator'
-import ThemeProvider from '@/components/theme-provider'
-import Toaster from '@/components/ui/toaster'
+import TailwindIndicator from '@/components/TailwindIndicator'
+import ThemeProvider from '@/components/ThemeProvider'
+import Toaster from '@/components/ui/Toaster'
 import { type Metadata } from 'next'
-import { type ReactNode } from 'react'
 import { croparFont, interFont } from '@/lib/fonts'
 import { siteConfig } from '@/config/site'
+import type { LayoutProps } from '@/types'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -45,16 +44,11 @@ export const metadata: Metadata = {
   }
 }
 
-export interface RootLayoutProps {
-  children: ReactNode
-}
-
-export default function RootLayout ({ children }: RootLayoutProps) {
+export default function RootLayout ({ children }: LayoutProps) {
   return (
     <html lang='en' suppressHydrationWarning>
       <body className={`antialiased ${interFont.className} ${croparFont.variable}`}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <SiteHeader />
           {children}
           <TailwindIndicator />
         </ThemeProvider>

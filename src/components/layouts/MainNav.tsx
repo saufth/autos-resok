@@ -1,5 +1,5 @@
 'use client'
-import { Logomark, Logo } from '../icons'
+import { Logomark, Logo } from '../Icons'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,7 +8,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
-} from '@/components/ui/nav-menu'
+} from '@/components/ui/NavMenu'
 import Link from 'next/link'
 import * as React from 'react'
 import { cn } from '@/lib/utils'

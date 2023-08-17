@@ -1,5 +1,8 @@
 import {
+  AlertTriangle,
   Check,
+  ChevronLeft,
+  ChevronRight,
   Image,
   Loader2,
   Menu,
@@ -68,6 +71,8 @@ export function Logomark (props: LucideProps) {
 export const Icons = {
   Add: Plus,
   Check,
+  ChevronLeft,
+  ChevronRight,
   Logo,
   Logomark,
   Menu,
@@ -75,7 +80,8 @@ export const Icons = {
   Search,
   Spinner: Loader2,
   Sun: SunMedium,
-  Placeholder: Image
+  Placeholder: Image,
+  Warning: AlertTriangle
 }
 
 export type AppIcons = keyof typeof Icons

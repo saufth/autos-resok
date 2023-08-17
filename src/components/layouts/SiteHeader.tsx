@@ -1,7 +1,7 @@
 import { Combobox } from '../Combobox'
-import { MainNav } from './main-nav'
+import { MainNav } from './MainNav'
 import { MobileNav } from '@/components/layouts/MobileNav'
-import { ThemeToggle } from './theme-toggle'
+import { ThemeToggle } from './ThemeToggle'
 import { siteConfig } from '@/config/site'
 
 export async function SiteHeader () {

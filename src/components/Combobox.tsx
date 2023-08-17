@@ -4,8 +4,8 @@ import * as React from 'react'
 // import { type Product } from '@/db/schema'
 
 import { cn } from '@/lib/utils'
-import { useDebounce } from '@/hooks/use-debounce'
-import { Button } from '@/components/ui/button'
+import { useDebounce } from '@/hooks/useDebounce'
+import { Button } from '@/components/ui/Button'
 import {
   CommandDialog,
   CommandEmpty,
@@ -13,9 +13,9 @@ import {
   CommandInput,
   CommandItem,
   CommandList
-} from '@/components/ui/command'
-import { Skeleton } from '@/components/ui/skeleton'
-import { Icons } from '@/components/icons'
+} from '@/components/ui/Command'
+import { Skeleton } from '@/components/ui/Skeleton'
+import { Icons } from '@/components/Icons'
 // import { filterProductsAction } from '@/app/_actions/product'
 
 export function Combobox () {

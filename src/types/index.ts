@@ -1,4 +1,9 @@
-import { type AppIcons } from '@/components/icons'
+import { type ReactNode } from 'react'
+import { type AppIcons } from '@/components/Icons'
+
+export interface LayoutProps {
+  children: ReactNode
+}
 
 export interface NavItemProps {
   title: string
@@ -27,4 +32,10 @@ export type UserRole = 'user' | 'admin' | 'superadmin'
 export type Option = {
   label: string
   value: string
+}
+
+export interface StoredFile {
+  id: number
+  name: string
+  url: string
 }

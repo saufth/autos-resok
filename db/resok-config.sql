@@ -75,12 +75,16 @@ INSERT INTO `types`
     (`name`)
 VALUES
     (
+        'Convertible',
         'Coupe',
         'Hatchback',
+        'Minivan',
         'Pickup',
         'Sedan',
         'Suv',
-        'Van'
+        'Targa',
+        'Van',
+        'Wagon'
     );
 
 -- -----------------------------------------------------

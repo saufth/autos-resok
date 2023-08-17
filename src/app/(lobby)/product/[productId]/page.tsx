@@ -657,18 +657,18 @@ export default async function ProductPage ({ params }: ProductPageProps) {
           }
         ]}
       />
-      <div className='flex flex-col gap-8 md:flex-row md:gap-16'>
+      <div className='flex flex-col gap-8 md:flex-row md:gap-4'>
         <ProductImageCarousel
-          className='w-full md:w-1/2'
+          className='w-full md:w-2/3'
           images={product.images ?? []}
           options={{
             loop: true
           }}
         />
         <Separator className='mt-4 md:hidden' />
-        <div className='flex w-full flex-col gap-4 md:w-1/2'>
+        <div className='flex w-full flex-col gap-4 md:w-1/3'>
           <div className='space-y-2'>
-            <h2 className='line-clamp-1 text-2xl font-bold'>{product.name}</h2>
+            <h2 className='text-2xl font-bold'>{product.name}</h2>
             <p className='text-base text-muted-foreground'>
               {formatPrice(product.price)}
             </p>
@@ -689,7 +689,7 @@ export default async function ProductPage ({ params }: ProductPageProps) {
         ? (
           <div className='overflow-hidden md:pt-6'>
             <h2 className='line-clamp-1 flex-1 text-2xl font-bold'>
-              More products from {store.name}
+              Más autos en {store.name}
             </h2>
             <div className='overflow-x-auto pb-2 pt-6'>
               <div className='flex w-fit gap-4'>

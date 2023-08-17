@@ -74,7 +74,7 @@ export function ProductImageCarousel ({
         aria-label='Product Placeholder'
         role='img'
         aria-roledescription='placeholder'
-        className='flex aspect-square h-full w-full flex-1 items-center justify-center bg-secondary'
+        className='flex aspect-video h-full w-full flex-1 items-center justify-center bg-secondary'
       >
         <Icons.Placeholder
           className='h-9 w-9 text-muted-foreground'
@@ -99,7 +99,7 @@ export function ProductImageCarousel ({
         >
           {images.map((image, index) => (
             <div className='relative min-w-0 flex-full pl-4' key={index}>
-              <AspectRatio ratio={1}>
+              <AspectRatio ratio={16 / 9}>
                 <Image
                   aria-label={`Slide ${index + 1} of ${images.length}`}
                   role='group'
@@ -139,7 +139,7 @@ export function ProductImageCarousel ({
                 variant='outline'
                 size='icon'
                 className={cn(
-                  'group relative aspect-square h-full w-full max-w-[100px] rounded-none shadow-sm hover:bg-transparent focus-visible:ring-foreground',
+                  'group relative aspect-video h-full w-full max-w-[100px] rounded-none shadow-sm hover:bg-transparent focus-visible:ring-foreground',
                   i === selectedIndex && 'ring-1 ring-foreground'
                 )}
                 onClick={() => scrollTo(i)}

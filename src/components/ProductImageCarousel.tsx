@@ -109,7 +109,7 @@ export function ProductImageCarousel ({
                   alt={image.name}
                   fill
                   sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                  className='object-cover'
+                  className='object-cover md:rounded-xl'
                   priority={index === 0}
                 />
               </AspectRatio>
@@ -139,7 +139,7 @@ export function ProductImageCarousel ({
                 variant='outline'
                 size='icon'
                 className={cn(
-                  'group relative aspect-video h-full w-full max-w-[100px] rounded-none shadow-sm hover:bg-transparent focus-visible:ring-foreground',
+                  'group relative aspect-video h-full w-full max-w-[100px] rounded-md overflow-hidden shadow-sm hover:bg-transparent',
                   i === selectedIndex && 'ring-1 ring-foreground'
                 )}
                 onClick={() => scrollTo(i)}

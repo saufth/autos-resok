@@ -1,12 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { formatPrice } from '@/lib/utils'
-import { Separator } from '@/components/ui/Separator'
+import { formatMilage, formatPrice } from '@/lib/utils'
 import { Breadcrumbs } from '@/components/pagers/Breadcrumbs'
 import { ProductCard } from '@/components/ProductCard'
 import { ProductImageCarousel } from '@/components/ProductImageCarousel'
-import { Shell } from '@/components/shells/Shell'
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
@@ -634,60 +632,71 @@ export default async function ProductPage ({ params }: ProductPageProps) {
 
   const store = {
     id: 1,
-    name: 'Querétaro'
+    name: 'Autos Resok Pasteur'
   }
 
   const productsFromStore = allProducts
 
   return (
-    <Shell>
-      <Breadcrumbs
-        segments={[
-          {
-            title: 'Kia',
-            href: '#'
-          },
-          {
-            title: 'Sportage',
-            href: '#'
-          },
-          {
-            title: product.name,
-            href: `/product/${product.id}`
-          }
-        ]}
-      />
-      <div className='flex flex-col gap-8 md:flex-row md:gap-4'>
-        <ProductImageCarousel
-          className='w-full md:w-2/3'
-          images={product.images ?? []}
-          options={{
-            loop: true
-          }}
-        />
-        <Separator className='mt-4 md:hidden' />
-        <div className='flex w-full flex-col gap-4 md:w-1/3'>
-          <div className='space-y-2'>
-            <h2 className='text-2xl font-bold'>{product.name}</h2>
-            <p className='text-base text-muted-foreground'>
-              {formatPrice(product.price)}
-            </p>
-            {store
-              ? (
-                <Link
-                  href={`/products?store_ids=${store.id}`}
-                  className='line-clamp-1 inline-block text-base text-muted-foreground hover:underline'
-                >
-                  {store.name}
-                </Link>
-                )
-              : null}
+    <section className='space-y-8'>
+      <div>
+        <div className='container p-4'>
+          <Breadcrumbs
+            segments={[
+              {
+                title: 'Kia',
+                href: '#'
+              },
+              {
+                title: 'Sportage',
+                href: '#'
+              }
+            ]}
+          />
+        </div>
+        <div className='md:container flex flex-col gap-4 md:flex-row'>
+          <ProductImageCarousel
+            className='w-full md:w-2/3'
+            images={product.images ?? []}
+            options={{
+              loop: true
+            }}
+          />
+          <div className='w-full md:w-1/3 pl-4 pr-4 md:pl-10 md:pr-0'>
+            <div className='flex w-full flex-col gap-4 border border-border rounded-xl [&>div]:p-4 [&>div]:space-y-2'>
+              <div className='border-b border-border'>
+                <h2 className='text-2xl font-bold'>{product.name}</h2>
+                <p className='text-sm font-light text-muted-foreground'>
+                  {`${formatMilage(product.milage)} • ${product.city}`}
+                </p>
+              </div>
+              <div className='border-b border-border'>
+                <p className='text-sm font-light text-muted-foreground'>
+                  {`Precio de ${formatPrice(product.price)}`}
+                </p>
+                <p className='text-base'>
+                  Desde <span className='text-2xl'>{`${formatPrice(product.price)}`}</span> /mes
+                </p>
+              </div>
+              <div>
+                {store
+                  ? (
+                    <Link
+                      href={`/products?store_ids=${store.id}`}
+                      className='line-clamp-1 inline-block text-base text-muted-foreground hover:underline'
+                    >
+                      {store.name}
+                    </Link>
+                    )
+                  : null}
+              </div>
+            </div>
           </div>
         </div>
       </div>
       {store && productsFromStore.length > 0
         ? (
-          <div className='overflow-hidden md:pt-6'>
+          <div className='container overflow-hidden md:pt-6'>
             <h2 className='line-clamp-1 flex-1 text-2xl font-bold'>
               Más autos en {store.name}
             </h2>
@@ -705,6 +714,6 @@ export default async function ProductPage ({ params }: ProductPageProps) {
           </div>
           )
         : null}
-    </Shell>
+    </section>
   )
 }

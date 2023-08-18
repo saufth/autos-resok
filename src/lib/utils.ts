@@ -15,13 +15,15 @@ export function slugify (str: string) {
 
 export function formatPrice (
   price: number | string,
-  currency: 'USD' | 'MXN' = 'MXN',
-  notation: 'compact' | 'engineering' | 'scientific' | 'standard' = 'standard'
+  currency: 'USD' | 'EUR' | 'MXN' = 'MXN',
+  notation: 'compact' | 'engineering' | 'scientific' | 'standard' = 'standard',
+  minimumFractionDigits = 0
 ) {
   return new Intl.NumberFormat('es-MX', {
     style: 'currency',
     currency,
-    notation
+    notation,
+    minimumFractionDigits
   }).format(Number(price))
 }
 

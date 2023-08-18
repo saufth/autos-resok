@@ -722,7 +722,7 @@ export default function Home () {
         className='container mt-12'
       >
         <div
-          className='grid place-items-center gap-6 rounded-lg border bg-card px-6 py-16 text-center text-card-foreground shadow-sm'
+          className='grid place-items-center gap-6 rounded-xl border bg-card px-6 py-16 text-center text-card-foreground shadow-sm'
         >
           <h2 className='text-2xl font-medium sm:text-3xl'>
             ¿Quieres vender o cambiar tu atuo?

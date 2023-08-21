@@ -85,9 +85,15 @@
     `name` VARCHAR(32) NOT NULL,
     `year` YEAR NOT NULL,
     `transmission` ENUM('Automático', 'Manual'),
+    `traction` ENUM('Delantera', 'Trasera', '4x4', 'Total'),
     `type` ENUM('Convertible', 'Coupe', 'Hatchback', 'Minivan', 'Pickup', 'Sedan', 'Suv', 'Targa', 'Van', 'Wagon'),
     `fuel` ENUM('Diesel', 'Eléctrico', 'Estándar', 'Gasolina', 'Híbrido'),
+    `electric_windows` ENUM('Si', 'Delatnteros', 'Traseros'),
+    `consumption` FLOAT NOT NULL,
     `passengers` TINYINT NOT NULL,
+    `horsepower` MEDIUMINT NOT NULL,
+    `speeds` TINYINT NOT NULL,
+    `parked_at` VARCHAR(16) NOT NULL,
     `features` JSON NULL,
     `stock` MEDIUMINT UNSIGNED NOT NULL DEFAULT 0,
     `status` TINYINT UNSIGNED NOT NULL DEFAULT 1,
@@ -99,7 +105,10 @@
     INDEX `fk_cars_models_idx` (`models_id`),
     CONSTRAINT `fk_cars_models`
       FOREIGN KEY (`models_id`) REFERENCES `models` (`id`),
-    CONSTRAINT `chk_cars_passengers` CHECK (`passengers` > 1 AND `passengers` < 9)
+    CONSTRAINT `chk_cars_passengers` CHECK (`passengers` > 1 AND `passengers` < 9),
+    CONSTRAINT `chk_cars_consumption` CHECK (`consumption` >= 1 AND `consumption` <= 20),
+    CONSTRAINT `chk_cars_horsepower` CHECK (`horsepower` >= 50 AND `horsepower` <= 500),
+    CONSTRAINT `chk_cars_speeds` CHECK (`speeds` >= 3 AND `speeds` <= 6)
   ) ENGINE = InnoDB;
 
   CREATE TABLE IF NOT EXISTS `colors` (

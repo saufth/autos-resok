@@ -73,7 +73,7 @@ export function ProductCard ({
         <div className='flex w-full flex-col items-center gap-2 sm:flex-row sm:justify-between'>
           <Link
             aria-label='Preview product'
-            href={`/product-preview/${product.id}`}
+            href={`/product/${product.id}`}
             className={buttonVariants({
               variant: 'outline',
               size: 'sm',

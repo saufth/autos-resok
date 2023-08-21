@@ -136,7 +136,7 @@ export function ProductImageCarousel ({
           <div className='overflow-hidden p-px' ref={emblaThumbsRef}>
             <div className='flex'>
               {images.map((image, i) => (
-                <div className='flex-[0_0_28%] md:flex-[0_0_14%]' key={i}>
+                <div className='flex-[0_0_6rem] ml-3 first:ml-0' key={i}>
                   <Button
                     variant='outline'
                     size='icon'

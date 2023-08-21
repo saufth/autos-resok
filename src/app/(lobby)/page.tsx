@@ -647,15 +647,15 @@ export default function Home () {
       <section
         id='hero'
         aria-labelledby='hero-heading'
-        className='mx-auto flex w-full max-w-[64rem] flex-col items-center justify-center gap-4 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28'
+        className='mx-auto px-4 flex w-full max-w-[64rem] flex-col items-center justify-center gap-y-4 md:gap-y-8 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28'
       >
-        <h1 className='text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'>
+        <h1 className='text-4xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'>
           Aseguramos que la experiencia de comprar un auto sea agradable
         </h1>
         <Balancer className='max-w-[46rem] text-lg text-muted-foreground sm:text-xl'>
           Venta, compra e intercambio de automoviles seminuevos, recuperados y restaurados.
         </Balancer>
-        <div className='flex flex-wrap items-center justify-center gap-4'>
+        <div className='pt-4 flex flex-wrap items-center justify-center gap-4'>
           <Link
             href='#'
             className={cn(
@@ -670,7 +670,7 @@ export default function Home () {
             href='#'
             className={cn(
               buttonVariants({
-                variant: 'link',
+                variant: 'secondary',
                 size: 'lg'
               })
             )}

@@ -1,11 +1,12 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { formatMilage, formatPrice } from '@/lib/utils'
 import { Breadcrumbs } from '@/components/pagers/Breadcrumbs'
 import { ProductCard } from '@/components/ProductCard'
 import { ProductImageCarousel } from '@/components/ProductImageCarousel'
 import { Separator } from '@/components/ui/Separator'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
+import { formatMilage, formatPrice } from '@/lib/utils'
+import { Icons } from '@/components/Icons'
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
@@ -23,6 +24,8 @@ const allProducts = [
   {
     id: 1,
     name: 'KIA Sportage 2.0 EX AUTO Suv 2018',
+    version: '2.0 EX AUTO',
+    transmission: 'Automática',
     price: 364999,
     images: [
       {
@@ -93,11 +96,22 @@ const allProducts = [
     ],
     year: 2018,
     city: 'Querétaro',
-    milage: 48881
+    milage: 48881,
+    basic: {
+      traction: '4x4',
+      transmission: 'Automática',
+      city: 'Querétaro',
+      branch: 'Autos Resok Pasteur',
+      id: 1,
+      parked_at: 'D55',
+      consumption: '12.7'
+    }
   },
   {
     id: 2,
     name: 'KIA Sportage 2.0 EX AUTO Suv 2018',
+    version: '2.0 EX AUTO',
+    transmission: 'Automática',
     price: 364999,
     images: [
       {
@@ -168,11 +182,22 @@ const allProducts = [
     ],
     year: 2018,
     city: 'Querétaro',
-    milage: 48881
+    milage: 48881,
+    basic: {
+      traction: '4x4',
+      transmission: 'Automática',
+      city: 'Querétaro',
+      branch: 'Autos Resok Pasteur',
+      id: 1,
+      parked_at: 'D55',
+      consumption: '12.7'
+    }
   },
   {
     id: 3,
     name: 'KIA Sportage 2.0 EX AUTO Suv 2018',
+    version: '2.0 EX AUTO',
+    transmission: 'Automática',
     price: 364999,
     images: [
       {
@@ -243,11 +268,22 @@ const allProducts = [
     ],
     year: 2018,
     city: 'Querétaro',
-    milage: 48881
+    milage: 48881,
+    basic: {
+      traction: '4x4',
+      transmission: 'Automática',
+      city: 'Querétaro',
+      branch: 'Autos Resok Pasteur',
+      id: 1,
+      parked_at: 'D55',
+      consumption: '12.7'
+    }
   },
   {
     id: 4,
     name: 'KIA Sportage 2.0 EX AUTO Suv 2018',
+    version: '2.0 EX AUTO',
+    transmission: 'Automática',
     price: 364999,
     images: [
       {
@@ -318,11 +354,22 @@ const allProducts = [
     ],
     year: 2018,
     city: 'Querétaro',
-    milage: 48881
+    milage: 48881,
+    basic: {
+      traction: '4x4',
+      transmission: 'Automática',
+      city: 'Querétaro',
+      branch: 'Autos Resok Pasteur',
+      id: 1,
+      parked_at: 'D55',
+      consumption: '12.7'
+    }
   },
   {
     id: 5,
     name: 'KIA Sportage 2.0 EX AUTO Suv 2018',
+    version: '2.0 EX AUTO',
+    transmission: 'Automática',
     price: 364999,
     images: [
       {
@@ -393,11 +440,22 @@ const allProducts = [
     ],
     year: 2018,
     city: 'Querétaro',
-    milage: 48881
+    milage: 48881,
+    basic: {
+      traction: '4x4',
+      transmission: 'Automática',
+      city: 'Querétaro',
+      branch: 'Autos Resok Pasteur',
+      id: 1,
+      parked_at: 'D55',
+      consumption: '12.7'
+    }
   },
   {
     id: 6,
     name: 'KIA Sportage 2.0 EX AUTO Suv 2018',
+    version: '2.0 EX AUTO',
+    transmission: 'Automática',
     price: 364999,
     images: [
       {
@@ -468,11 +526,22 @@ const allProducts = [
     ],
     year: 2018,
     city: 'Querétaro',
-    milage: 48881
+    milage: 48881,
+    basic: {
+      traction: '4x4',
+      transmission: 'Automática',
+      city: 'Querétaro',
+      branch: 'Autos Resok Pasteur',
+      id: 1,
+      parked_at: 'D55',
+      consumption: '12.7'
+    }
   },
   {
     id: 7,
     name: 'KIA Sportage 2.0 EX AUTO Suv 2018',
+    version: '2.0 EX AUTO',
+    transmission: 'Automática',
     price: 364999,
     images: [
       {
@@ -543,11 +612,22 @@ const allProducts = [
     ],
     year: 2018,
     city: 'Querétaro',
-    milage: 48881
+    milage: 48881,
+    basic: {
+      traction: '4x4',
+      transmission: 'Automática',
+      city: 'Querétaro',
+      branch: 'Autos Resok Pasteur',
+      id: 1,
+      parked_at: 'D55',
+      consumption: '12.7'
+    }
   },
   {
     id: 8,
     name: 'KIA Sportage 2.0 EX AUTO Suv 2018',
+    version: '2.0 EX AUTO',
+    transmission: 'Automática',
     price: 364999,
     images: [
       {
@@ -618,7 +698,16 @@ const allProducts = [
     ],
     year: 2018,
     city: 'Querétaro',
-    milage: 48881
+    milage: 48881,
+    basic: {
+      traction: '4x4',
+      transmission: 'Automática',
+      city: 'Querétaro',
+      branch: 'Autos Resok Pasteur',
+      id: 1,
+      parked_at: 'D55',
+      consumption: '12.7'
+    }
   }
 ]
 
@@ -656,15 +745,21 @@ export default async function ProductPage ({ params }: ProductPageProps) {
           />
         </div>
         <div className='md:container flex flex-col gap-4 md:flex-row'>
-          <ProductImageCarousel
-            className='w-full md:w-2/3'
-            images={product.images ?? []}
-            options={{
-              loop: true
-            }}
-          />
+          <div className='w-full space-y-8 md:w-2/3'>
+            <ProductImageCarousel
+              images={product.images ?? []}
+              options={{
+                loop: true
+              }}
+            />
+            <div>
+              <h2 className='flex-1 text-2xl font-bold'>
+                Informacion Básica
+              </h2>
+            </div>
+          </div>
           <div className='w-full md:w-1/3 pl-4 pr-4 md:pl-10 md:pr-0'>
-            <div className='w-full border border-border rounded-xl'>
+            <div className='w-full border border-border rounded-xl bg-white dark:bg-slate-800 dark:border-0 dark:highlight-white/20'>
               <div className='p-4 space-y-2'>
                 <h2 className='text-2xl font-bold'>{product.name}</h2>
                 <p className='text-sm font-light text-muted-foreground'>
@@ -679,19 +774,41 @@ export default async function ProductPage ({ params }: ProductPageProps) {
                 <p className='text-base'>
                   Desde <span className='text-2xl'>{`${formatPrice(product.price)}`}</span> /mes
                 </p>
+                <div className='pt-3'>
+                  <Link
+                    href='#'
+                    className='flex items-center gap-x-2 text-sky-500 dark:text-sky-400'
+                  >
+                    <Icons.CircleDollar
+                      strokeWidth={1}
+                      size={32}
+                      className='stroke-sky-500 dark:stroke-sky-400'
+                    /> Solicita plan a crédito
+                  </Link>
+                </div>
               </div>
               <Separator />
-              <div className='p-4 space-y-2'>
-                {store
-                  ? (
-                    <Link
-                      href={`/products?store_ids=${store.id}`}
-                      className='line-clamp-1 inline-block text-base text-muted-foreground hover:underline'
-                    >
-                      {store.name}
-                    </Link>
-                    )
-                  : null}
+              <div>
+                <div className='p-4 space-y-2'>
+                  <div>
+                    <div className='text-muted-foreground'>Año</div>
+                    <div className='text-lg'>{product.year}</div>
+                  </div>
+                </div>
+                <Separator />
+                <div className='p-4 space-y-2'>
+                  <div>
+                    <div className='text-muted-foreground'>Versión</div>
+                    <div className='text-lg'>{product.version}</div>
+                  </div>
+                </div>
+                <Separator />
+                <div className='p-4 space-y-2'>
+                  <div>
+                    <div className='text-muted-foreground'>Transmición</div>
+                    <div className='text-lg'>{product.transmission}</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

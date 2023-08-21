@@ -1,5 +1,6 @@
 import {
   AlertTriangle,
+  CircleDollarSign,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -70,6 +71,7 @@ export function Logomark (props: LucideProps) {
 
 export const Icons = {
   Add: Plus,
+  CircleDollar: CircleDollarSign,
   Check,
   ChevronLeft,
   ChevronRight,

@@ -1,17 +1,9 @@
 import { Balancer } from 'react-wrap-balancer'
 import Link from 'next/link'
-import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle
-} from '@/components/ui/Card'
-import { AspectRatio } from '@/components/ui/AspectRatio'
 import { ProductCard } from '@/components/ProductCard'
+import InfoCard from '@/components/InfoCard'
 
 // export const dynamic = "force-dynamic"
 
@@ -19,17 +11,26 @@ const reasonWhyList = [
   {
     heading: 'Certificación OK para todos nuestros autos',
     description: 'Inspeccionamos a fondo cada una de nuestras unidades y nos aseguramos que todas cumplan con los estándares que tú como cliente necesitas.',
-    image: 'certification'
+    image: {
+      src: '/images/why-certification.webp',
+      alt: 'Certificaión Resok'
+    }
   },
   {
     heading: 'Restauramos a detalle nuestros automóviles',
     description: 'Mientras otras marcas compran y venden problemas, en autos Resok nos comprometemos con ofrecer un producto confiable, seguro y a la medida de tu presupuesto.',
-    image: 'recondition'
+    image: {
+      src: '/images/why-recondition.webp',
+      alt: 'Restauración Resok'
+    }
   },
   {
     heading: 'Ofrecemos planes de pago personalizados',
     description: 'Dependiendo de tu presupuesto y necesidades específicas, nos encargamos de brindarte una solución financiera viable y a tu medida.',
-    image: 'payments'
+    image: {
+      src: '/images/why-payments.webp',
+      alt: 'Plan Resok'
+    }
   }
 ]
 
@@ -687,31 +688,72 @@ export default function Home () {
           </div>
           <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3'>
             {reasonWhyList.map((reasonWhy, key) => (
-              <Card key={key} className='flex h-full flex-col overflow-hidden'>
-                <CardHeader className='border-b p-0'>
-                  <AspectRatio ratio={4 / 3}>
-                    <Image
-                      src={`/images/why-${reasonWhy.image}.webp`}
-                      alt={reasonWhy.heading}
-                      sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                      fill
-                      className='object-cover'
-                      loading='lazy'
-                    />
-                  </AspectRatio>
-                </CardHeader>
-                <CardContent className='grid gap-2.5 p-4'>
-                  <CardTitle className='lg:text-xl'>{reasonWhy.heading}</CardTitle>
-                  <CardDescription className='line-clamp-2'>
-                    {reasonWhy.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+              <InfoCard
+                key={key}
+                card={reasonWhy}
+              />
             ))}
           </div>
         </div>
       </section>
-      <section
+      <section>
+        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row md:h-[587px] md:py-0'>
+          <div className='w-full space-y-8 text-center md:text-left md:w-1/2'>
+            <h2 className='text-4xl'>
+              Venta de automóviles recuperados y restaurados
+            </h2>
+            <Balancer className='text-xl'>
+              Ponemos a su disposición una amplia gama de vehículos de excelente calidad,
+              priorizando siempre la confiabilidad y seguridad de nuestras unidades a un
+              precio por debajo del valor establecido por el mercado.
+            </Balancer>
+            <Link
+              href='#'
+              className={buttonVariants({ size: 'lg' })}
+            >
+              Comprar un auto
+            </Link>
+          </div>
+          <div className='w-full h-80 md:h-full bg-sky-600 md:w-1/2' />
+        </article>
+        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row-reverse md:h-[587px] md:py-0'>
+          <div className='w-full space-y-8 text-center md:text-left md:w-1/2'>
+            <h2 className='text-4xl'>
+              Trade-In y Compra de Autos
+            </h2>
+            <Balancer className='text-xl'>
+              Facilitamos a nuestros clientes la posibilidad de la venta o intercambio
+              de sus vehículos actuales al adquirir uno de nuestros automóviles.
+            </Balancer>
+            <Link
+              href='#'
+              className={buttonVariants({ size: 'lg' })}
+            >
+              Vende o cambia tu auto
+            </Link>
+          </div>
+          <div className='w-full h-80 md:h-full bg-sky-600 md:w-1/2' />
+        </article>
+        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row md:h-[587px] md:py-0'>
+          <div className='w-full space-y-8 text-center md:text-left md:w-1/2'>
+            <h2 className='text-4xl'>
+              ¡Pedidos especiales!
+            </h2>
+            <Balancer className='text-xl'>
+              Si tienes la necesidad de adquirir un vehículo específico bajo un presupuesto concreto
+              nuestro equipo de compras se dará a la tarea de seleccionar la mejor opción para ti.
+            </Balancer>
+            <Link
+              href='#'
+              className={buttonVariants({ size: 'lg' })}
+            >
+              Solicitar auto
+            </Link>
+          </div>
+          <div className='w-full h-80 md:h-full bg-sky-600 md:w-1/2' />
+        </article>
+      </section>
+      {/* <section
         id='sell-yor-car-banner'
         aria-labelledby='sell-yor-car-banner-heading'
         className='container'
@@ -728,35 +770,13 @@ export default function Home () {
           </Balancer>
           <div>
             <Link href='/dashboard/stores'>
-              <div className={cn(buttonVariants())}>
+              <div className={buttonVariants()}>
                 Vende o cambia tu auto
               </div>
             </Link>
           </div>
         </div>
-      </section>
-      <section className='container h-[587px] flex flex-col items-center gap-8 md:flex-row'>
-        <div className='w-full space-y-8 text-center md:text-left md:w-1/2'>
-          <h2 className='text-4xl'>
-            ¡Pedidos especiales!
-          </h2>
-          <Balancer className='text-xl'>
-            Si tienes la necesidad de adquirir un vehículo específico bajo un presupuesto concreto
-            nuestro equipo de compras se dará a la tarea de seleccionar la mejor opción para ti.
-          </Balancer>
-          <Link
-            href='#'
-            className={cn(
-              buttonVariants({
-                size: 'lg'
-              })
-            )}
-          >
-            Solicitar auto
-          </Link>
-        </div>
-        <div className='w-full md:w-1/2 h-full bg-sky-600' />
-      </section>
+      </section> */}
       <section
         id='featured-products'
         aria-labelledby='featured-products-heading'

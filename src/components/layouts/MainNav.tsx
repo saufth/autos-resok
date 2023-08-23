@@ -20,14 +20,14 @@ interface MainNavProps {
 
 export function MainNav ({ items }: MainNavProps) {
   return (
-    <div className='w-full flex justify-between'>
+    <div className='w-full flex justify-between items-center'>
       <Link
         aria-label='Home'
         href='/'
         className='flex items-center gap-x-2'
       >
-        <Logomark className='w-auto h-8' />
-        <Logo className='w-auto h-4 hidden md:block' />
+        <Logomark className='w-auto h-9 md:hidden' />
+        <Logo className='w-auto h-12 hidden md:block' />
       </Link>
       <NavigationMenu className='hidden md:block'>
         <NavigationMenuList>

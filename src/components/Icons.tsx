@@ -1,5 +1,7 @@
 import {
   AlertTriangle,
+  ArrowLeftRight,
+  CalendarCheck,
   CircleDollarSign,
   Check,
   ChevronLeft,
@@ -9,8 +11,11 @@ import {
   Menu,
   Moon,
   Search,
+  ShieldCheck,
   SunMedium,
   Plus,
+  Truck,
+  Wrench,
   type LucideProps
 } from 'lucide-react'
 
@@ -71,6 +76,7 @@ export function Logomark (props: LucideProps) {
 
 export const Icons = {
   Add: Plus,
+  CalendarCheck,
   CircleDollar: CircleDollarSign,
   Check,
   ChevronLeft,
@@ -80,8 +86,12 @@ export const Icons = {
   Menu,
   Moon,
   Search,
+  ShieldCheck,
   Spinner: Loader2,
   Sun: SunMedium,
+  Switch: ArrowLeftRight,
+  Tool: Wrench,
+  Truck,
   Placeholder: Image,
   Warning: AlertTriangle
 }

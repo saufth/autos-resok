@@ -17,24 +17,19 @@ import { ProductCard } from '@/components/ProductCard'
 
 const reasonWhyList = [
   {
-    heading: 'Certificamos todos nuestos autos',
-    description: 'Inspeccionamos cada punto y nos aseguramos que todo este en orden',
+    heading: 'Certificación OK para todos nuestros autos',
+    description: 'Inspeccionamos a fondo cada una de nuestras unidades y nos aseguramos que todas cumplan con los estándares que tú como cliente necesitas.',
     image: 'certification'
   },
   {
-    heading: 'Reacondicionamos todos nuestros autos',
-    description: 'Invertimos hasta $00,000 para convertirlo en un auto Resok',
+    heading: 'Restauramos a detalle nuestros automóviles',
+    description: 'Mientras otras marcas compran y venden problemas, en autos Resok nos comprometemos con ofrecer un producto confiable, seguro y a la medida de tu presupuesto.',
     image: 'recondition'
   },
   {
-    heading: 'Ofrecemos planes de pago a medida',
-    description: 'Aprobamos tu plan de pago en muy poco tiempo',
+    heading: 'Ofrecemos planes de pago personalizados',
+    description: 'Dependiendo de tu presupuesto y necesidades específicas, nos encargamos de brindarte una solución financiera viable y a tu medida.',
     image: 'payments'
-  },
-  {
-    heading: 'Te damos 3 meses de cobertura',
-    description: 'Lorem ipsum dolor sit amet ipsum sit dolor amet',
-    image: 'coverage'
   }
 ]
 
@@ -650,10 +645,10 @@ export default function Home () {
         className='mx-auto px-4 flex w-full max-w-[64rem] flex-col items-center justify-center gap-y-4 md:gap-y-8 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28'
       >
         <h1 className='text-4xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'>
-          Aseguramos que la experiencia de comprar un auto sea agradable
+          Autos Restaurados y Renovados. Realmente a tu alcance.
         </h1>
         <Balancer className='max-w-[46rem] text-lg text-muted-foreground sm:text-xl'>
-          Venta, compra e intercambio de automoviles seminuevos, recuperados y restaurados.
+          Venta, compra e intercambio de automóviles seminuevos, recuperados y restaurados.
         </Balancer>
         <div className='pt-4 flex flex-wrap items-center justify-center gap-4'>
           <Link
@@ -675,7 +670,7 @@ export default function Home () {
               })
             )}
           >
-            Cambia o vende tu auto {'>'}
+            Cambia o vende tu auto
           </Link>
         </div>
       </section>
@@ -690,7 +685,7 @@ export default function Home () {
               Razones para comprar un auto Resok
             </h2>
           </div>
-          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3'>
             {reasonWhyList.map((reasonWhy, key) => (
               <Card key={key} className='flex h-full flex-col overflow-hidden'>
                 <CardHeader className='border-b p-0'>
@@ -719,20 +714,48 @@ export default function Home () {
       <section
         id='sell-yor-car-banner'
         aria-labelledby='sell-yor-car-banner-heading'
-        className='container mt-12'
+        className='container'
       >
         <div
           className='grid place-items-center gap-6 rounded-xl border bg-card px-6 py-16 text-center text-card-foreground shadow-sm'
         >
-          <h2 className='text-2xl font-medium sm:text-3xl'>
-            ¿Quieres vender o cambiar tu atuo?
+          <h2 className='pl-4 text-2xl font-medium sm:text-3xl'>
+            Trade-In y Compra de Autos
           </h2>
-          <Link href='/dashboard/stores'>
-            <div className={cn(buttonVariants())}>
-              Vende o cambia tu auto
-            </div>
+          <Balancer>
+            Facilitamos a nuestros clientes la posibilidad de la venta o intercambio
+            de sus vehículos actuales al adquirir uno de nuestros automóviles.
+          </Balancer>
+          <div>
+            <Link href='/dashboard/stores'>
+              <div className={cn(buttonVariants())}>
+                Vende o cambia tu auto
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section className='container h-[587px] flex flex-col items-center gap-8 md:flex-row'>
+        <div className='w-full space-y-8 text-center md:text-left md:w-1/2'>
+          <h2 className='text-4xl'>
+            ¡Pedidos especiales!
+          </h2>
+          <Balancer className='text-xl'>
+            Si tienes la necesidad de adquirir un vehículo específico bajo un presupuesto concreto
+            nuestro equipo de compras se dará a la tarea de seleccionar la mejor opción para ti.
+          </Balancer>
+          <Link
+            href='#'
+            className={cn(
+              buttonVariants({
+                size: 'lg'
+              })
+            )}
+          >
+            Solicitar auto
           </Link>
         </div>
+        <div className='w-full md:w-1/2 h-full bg-sky-600' />
       </section>
       <section
         id='featured-products'

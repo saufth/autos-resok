@@ -19,7 +19,7 @@ export const siteConfig = {
     },
     {
       title: 'Nosotros',
-      href: '#'
+      href: '/about'
     }
   ]
 }

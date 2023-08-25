@@ -696,9 +696,12 @@ export default function Home () {
           </div>
         </div>
       </section>
-      <section>
-        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row md:h-[587px] md:py-0'>
-          <div className='w-full space-y-8 text-center md:text-left md:w-1/2'>
+      <section
+        id='about-us'
+        aria-labelledby='about-us-heading'
+      >
+        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row md:h-[480px] md:py-0'>
+          <div className='w-full lg:px-12 space-y-8 text-center md:text-left md:w-1/2'>
             <h2 className='text-4xl'>
               Venta de automóviles recuperados y restaurados
             </h2>
@@ -716,8 +719,8 @@ export default function Home () {
           </div>
           <div className='w-full h-80 md:h-full bg-sky-600 md:w-1/2' />
         </article>
-        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row-reverse md:h-[587px] md:py-0'>
-          <div className='w-full space-y-8 text-center md:text-left md:w-1/2'>
+        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row-reverse md:h-[480px] md:py-0'>
+          <div className='w-full lg:px-12 space-y-8 text-center md:text-left md:w-1/2'>
             <h2 className='text-4xl'>
               Trade-In y Compra de Autos
             </h2>
@@ -734,8 +737,8 @@ export default function Home () {
           </div>
           <div className='w-full h-80 md:h-full bg-sky-600 md:w-1/2' />
         </article>
-        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row md:h-[587px] md:py-0'>
-          <div className='w-full space-y-8 text-center md:text-left md:w-1/2'>
+        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row md:h-[480px] md:py-0'>
+          <div className='w-full lg:px-12 space-y-8 text-center md:text-left md:w-1/2'>
             <h2 className='text-4xl'>
               ¡Pedidos especiales!
             </h2>

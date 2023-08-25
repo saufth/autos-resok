@@ -6,16 +6,6 @@ module.exports = {
   darkMode: ['class'],
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
-    container: {
-      center: true,
-      padding: {
-        DEFAULT: '1rem',
-        lg: '2rem'
-      },
-      screens: {
-        '2xl': '1400px'
-      }
-    },
     extend: {
       screens: {
         xs: '380px'
@@ -97,5 +87,8 @@ module.exports = {
         { values: flattenColorPalette(theme('backgroundColor')), type: 'color' }
       )
     }
-  ]
+  ],
+  corePlugins: {
+    container: false
+  }
 }

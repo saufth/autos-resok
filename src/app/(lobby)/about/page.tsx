@@ -65,19 +65,20 @@ const ourValues = [
   }
 ]
 
-export default function Home () {
+export default function About () {
   return (
     <main className='space-y-12 pb-8'>
       <section
-        id='hero'
-        aria-labelledby='hero-heading'
+        id='about-hero'
+        aria-labelledby='about-hero-heading'
         className='mx-auto px-4 flex w-full max-w-[64rem] flex-col items-center justify-center gap-y-4 md:gap-y-8 pb-8 pt-6 text-center md:pb-12 md:pt-10 lg:py-28'
       >
         <h1 className='text-4xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </h1>
         <Balancer className='max-w-[46rem] text-lg text-muted-foreground sm:text-xl'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur perferendis nisi, a aliquam magnam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Consequuntur perferendis nisi, a aliquam magnam.
         </Balancer>
         <div className='pt-4'>
           <Link
@@ -93,24 +94,24 @@ export default function Home () {
         </div>
       </section>
       <section>
-        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row md:h-[587px] md:py-0'>
-          <div className='w-full space-y-8 text-center md:text-left md:w-1/2'>
+        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row md:h-[480px] md:py-0'>
+          <div className='w-full lg:px-12 space-y-8 text-center md:text-left md:w-1/2'>
             <h2 className='text-4xl'>
               Nuestra Misión
             </h2>
-            <Balancer className='text-xl'>
+            <Balancer className='text-xl text-muted-foreground'>
               En Autos Resok, nuestra misión es brindarte una experiencia agradable,
               confiable y segura en la compra de tu automóvil.
             </Balancer>
           </div>
           <div className='w-full h-80 md:h-full bg-sky-600 md:w-1/2' />
         </article>
-        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row-reverse md:h-[587px] md:py-0'>
-          <div className='w-full space-y-8 text-center md:text-left md:w-1/2'>
+        <article className='container py-8 flex flex-col items-center gap-8 md:flex-row-reverse md:h-[480px] md:py-0'>
+          <div className='w-full lg:px-12 space-y-8 text-center md:text-left md:w-1/2'>
             <h2 className='text-4xl'>
               Nuestra Visión
             </h2>
-            <Balancer className='text-xl'>
+            <Balancer className='text-xl text-muted-foreground'>
               Nuestra visión es llegar a ser la empresa líder en México en el mercado
               de venta de automóviles restaurados y recuperados, avalada por la plena
               satisfacción y preferencia de nuestros clientes.
@@ -124,7 +125,7 @@ export default function Home () {
           <h2 className='text-4xl font-bold'>
             Nuestros Valores
           </h2>
-          <Balancer className='text-lg'>
+          <Balancer className='text-lg text-muted-foreground'>
             El éxito a corto, mediano y largo de cualquier empresa no depende de un
             solo aspecto, sino de la sincronización de muchos. Aquí te presentamos
             los más importantes para nosotros, mismos que forman parte de nuestro ADN
